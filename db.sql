@@ -10,3 +10,6 @@ CREATE TABLE usuarios (
     isAdmin BOOLEAN NOT NULL DEFAULT false,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Add admin
+-- UPDATE usuarios SET isAdmin = 1 WHERE email = 'youremail@here.com';

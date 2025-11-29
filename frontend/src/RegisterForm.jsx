@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const UserForm = ({ onUserCreated }) => {
+export const RegisterForm = ({ onUserCreated }) => {
     const [formData, setFormData] = useState({
         nombre: '',
         email: '',
@@ -69,7 +69,7 @@ export const UserForm = ({ onUserCreated }) => {
     return(
         <>
         {errors.length > 0 && (
-                <div style={{ color: 'red', border: '1px solid red', padding: '10px', marginBottom: '15px' }}>
+                <div className="error_container">
                     <h3>Error al crear usuario:</h3>
                     <ul>
                         { errors.map((err, index) => (
@@ -78,20 +78,23 @@ export const UserForm = ({ onUserCreated }) => {
                     </ul>
                 </div>
             )}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email:</label>
-                <input type="email" name="email" id="email" required value={formData.email}  onChange={handleChange}/>
+            <div className="form__container">
+                <h2>Registrarse</h2>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" name="email" id="email" required value={formData.email}  onChange={handleChange}/>
 
-                <label htmlFor="username">Nombre de usuario:</label>
-                <input type="text" id="username" name="username" required value={formData.username}  onChange={handleChange}/>
+                    <label htmlFor="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" required value={formData.username}  onChange={handleChange}/>
 
-                <label htmlFor="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required value={formData.nombre}  onChange={handleChange}/>
+                    <label htmlFor="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required value={formData.nombre}  onChange={handleChange}/>
 
-                <label htmlFor="password">Contraseña: </label>
-                <input type="password" name="password" id="password" required value={formData.password}  onChange={handleChange} />
-                <button type="submit">Crear</button>
-            </form>
+                    <label htmlFor="password">Contraseña: </label>
+                    <input type="password" name="password" id="password" required value={formData.password}  onChange={handleChange} />
+                    <button type="submit">Crear</button>
+                </form>
+            </div>
         </>
     )
 }

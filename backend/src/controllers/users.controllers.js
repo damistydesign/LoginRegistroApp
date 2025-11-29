@@ -136,7 +136,16 @@ export class UsersController {
           // (Si el código llegó hasta acá, es porque pasó los dos filtros anteriores)
           
           // Nota: 200 OK es mejor que 201 Created para Login (a menos que crees una sesión en BD)
-          const token = jwt.sign({ id: user.id, username: user.username  }, process.env.JWT_SECRET, {expiresIn: '1h'})
+          const token = jwt.sign(
+            { 
+              id: user.id, 
+              username: user.username,
+              isAdmin: user.isAdmin  
+            }, 
+            process.env.JWT_SECRET, 
+            { expiresIn: '1h' }
+          )
+
           res.status(200).json({ 
               token: token, username: user.username
 

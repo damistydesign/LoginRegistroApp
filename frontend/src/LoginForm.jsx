@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './css/form.css'
 
 export const LoginForm = ({ onLoginSuccess }) => {
     const [data, setData] = useState({
@@ -23,7 +24,7 @@ export const LoginForm = ({ onLoginSuccess }) => {
 
         try{
 
-            const res = await fetch('http://localhost:3000/api/users/login', 
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/login`, 
                 {
                     method: 'POST',
                     headers: {
@@ -57,7 +58,7 @@ export const LoginForm = ({ onLoginSuccess }) => {
     }
 
 return (
-        <div style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '8px', maxWidth: '400px', margin: '20px auto' }}>
+        <div className="form__container">
             <h2>Iniciar Sesión</h2>
             
             {/* Mostramos el error si existe, pero SIN borrar el form */}
@@ -72,7 +73,6 @@ return (
                         value={data.email} 
                         onChange={handleChange} 
                         required 
-                        style={{ width: '100%' }}
                     />
                 </div>
                 <div>
@@ -83,10 +83,9 @@ return (
                         value={data.password} 
                         onChange={handleChange} 
                         required 
-                        style={{ width: '100%' }}
                     />
                 </div>
-                <button type="submit" style={{ padding: '10px', cursor: 'pointer' }}>Ingresar</button>
+                <button type="submit">Ingresar</button>
             </form>
         </div>
     );

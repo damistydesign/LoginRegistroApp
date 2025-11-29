@@ -1,0 +1,29 @@
+.container__form{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt__account {
+  color: var(--bg-color-secondary);
+  font-size: var(--f-17);
+}
+
+.btn__show {
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 5px;
+  font-weight: 100;
+  font-size: var(--f-14);
+  transition: var(--smoth-transition-bg-cc);
+}
+
+.btn__show:hover {
+  background-color: var(--btn-hover-primary);
+  color: var(--bg-color-secondary);
+}
