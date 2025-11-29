@@ -1,0 +1,32 @@
+{
+  "name": "loginyregistro",
+  "version": "1.0.0",
+  "description": "Un login y registro en React, Node y MySQL",
+  "main": "index.js",
+  "scripts": {
+      "install:all": "npm run install:backend && npm run install:frontend",
+      "install:backend": "cd backend && npm install",
+      "install:frontend": "cd frontend && npm install",
+
+      "start:back": "node backend/src/index.js",
+      "start:front": "cd frontend && npm run dev",
+
+      "dev:back": "nodemon backend/src/index.js",
+      "dev:front": "cd frontend && npm run dev",
+
+      "dev": "concurrently \"npm run dev:back\" \"npm run dev:front\""
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damistydesign/LoginRegistroApp.git"
+  },
+  "author": "Damián Rosano",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.11"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
